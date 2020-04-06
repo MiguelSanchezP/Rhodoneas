@@ -1,3 +1,7 @@
+#Conjecture
+#When k = a/b if a is odd and b even or viceversa a total of b times 2pi is requiered for closing the flower
+#When k = a/b and both a and b are odd, a total of b/2 times 2pi is required for closing the flower 
+
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import animation
