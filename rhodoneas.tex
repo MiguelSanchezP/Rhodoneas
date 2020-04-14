@@ -1,0 +1,104 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{breqn}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\author{Miguel Sánchez}
+\title{Angle to close a rhodonea curve}
+\date{\today}
+
+\begin{document}
+\maketitle
+\noindent
+ We can define the rhodonea in polar coordinates as:
+ \begin{equation}
+  r(\theta) = \cos(k\theta)
+ \end{equation}
+ If we make it on cartesian coordinates we can define it as following:
+ \begin{equation}
+  x = \cos(k\theta)\cos(\theta)
+ \end{equation}
+ \begin{equation}
+  y = \cos(k\theta)\sin(\theta)
+ \end{equation}
+ And we know that the curve is going to be closed when the derivative of the same point is equal to that of the initial conditions. But we have to consider that the derivative is going to be infinity, so in order to fix this we can rotate the figure so we obtain a new plot where the initial point has a derivative of 0. We can get this rotation by making:
+ \begin{equation}
+  x = \cos(k\theta)\cos\Bigr(\theta+\frac{\pi}{2}\Bigr)
+ \end{equation}
+ \begin{equation}
+  y = \cos(k\theta)\sin\Bigr(\theta+\frac{\pi}{2}\Bigr)
+ \end{equation}
+But as we can't calculate the derivative with the polar form we can calculate it as:
+ \begin{dmath}
+   \frac{\partial y}{\partial x} = \frac{\partial\Bigr(\cos(k\theta)\sin\Bigr(\theta+\frac{\pi}{2}\Bigr)\Bigr)}{\partial\Bigr(\cos(k\theta)\cos\Bigr(\theta+\frac{\pi}{2}\Bigr)\Bigr)} = \frac{\partial(\cos(k\theta))\sin\Bigr(\theta+\frac{\pi}{2}\Bigr) + \cos(k\theta)\partial\Bigr(sin\Bigr(\theta + \frac{\pi}{2}\Bigr)\Bigr)}{\partial(\cos(k\theta))\cos\Bigr(\theta+\frac{\pi}{2}\Bigr) + \cos(k\theta)\partial\Bigr(\cos\Bigr(\theta+\frac{\pi}{2}\Bigr)\Bigr)} = \frac{-k\sin(k\theta)\sin\Bigr(\theta + \frac{\pi}{2}\Bigr)+\cos(k\theta)\cos\Bigr(\theta + \frac{\pi}{2}\Bigr)}{-k\sin(k\theta)cos\Bigr(\theta+\frac{\pi}{2}\Bigr) + \cos(k\theta)\Bigr(-\sin\Bigr(\theta+\frac{\pi}{2}\Bigr)\Bigr)}
+\end{dmath}
+We also know that:
+\begin{equation*}
+  \sin \Bigr( \theta + \frac{\pi}{2}\Bigr) = \sin(\theta)\cos\Bigr(\frac{\pi}{2}\Bigr) + \cos(\theta)\sin\Bigr(\frac{\pi}{2}\Bigr) = \cos(\theta)
+\end{equation*}
+\begin{equation*}
+ \cos\Bigr(\theta+\frac{\pi}{2}\Bigr) = \cos(\theta)\cos\Bigr(\frac{\pi}{2}\Bigr) - \sin(\theta)\sin\Bigr(\frac{\pi}{2}\Bigr) = -\sin(\theta)
+\end{equation*}
+So making use of this equations we can simplify our expression to get:
+\begin{dmath}
+ \frac{-k\sin(k\theta)\cos(\theta) + \cos(k\theta)(-\sin(\theta))}{-k\sin(k\theta)(-\sin(\theta)) + \cos(k\theta)(-\cos(\theta))} = \frac{k\sin(k\theta)\cos(\theta)+\cos(k\theta)\sin(\theta)}{k\sin(k\theta)(-\sin(\theta)) + \cos(k\theta)\cos(\theta)}
+\end{dmath}
+Therefore we can state that:
+\begin{dmath}
+ \frac{\partial y}{\partial x} = \frac{k\sin(k\theta)\cos(\theta)+\cos(k\theta)\sin(\theta)}{k\sin(k\theta)(-\sin(\theta)) + \cos(k\theta)\cos(\theta)}
+\end{dmath}
+In order to close the rhodonea we need the same conditions as in the beginning, and we can get those once the derivative in the point $P(0,1) = 0$, we can calculate this the following way:
+\begin{dmath}
+ 0 = \frac{k\sin(k\theta)\cos(\theta) + \cos(k\theta)\sin(\theta)}{k\sin(k\theta)(-\sin(\theta)) + \cos(k\theta)\cos(\theta)}
+\end{dmath}
+\begin{dmath}
+ 0 = k\sin(k\theta)\cos(\theta)+\cos(k\theta)\sin(\theta)
+\end{dmath}
+As we know that the position of the point has to be one unit above the y-axis, we can establish the angle as $\frac{\pi}{2}$. This is the angle $0$ or $2\pi$ plus the $\frac{\pi}{2}$ we added at the beginning:
+\begin{equation}
+ 0 = k\sin\Bigr(k\cdot2\pi+\frac{\pi}{2}\Bigr)\cos\Bigr(2\pi+\frac{\pi}{2}\Bigr)+\cos\Bigr(k\cdot2\pi+\frac{\pi}{2}\Bigr)sin\Bigr(2\pi+\frac{\pi}{2}\Bigr)
+\end{equation}
+The first part of the expression is equal to $0$ as $\cos\Bigr(\frac{\pi}{2}\Bigr) = 0$, also knowing that $\sin\Bigr(\frac{\pi}{2}\Bigr) = 1$ the expression can be simplified to:
+\begin{equation}
+ 0 = \cos\Bigr(k\cdot2\pi+\frac{\pi}{2}\Bigr)
+\end{equation}
+In order to satisfy this expression we need to get $k\in\mathbb{W}$, but as the wording states that $k\in\mathbb{R}$, we have to add another parameter in order to make $k$ belong to the set we've specified. Therefore our expression could be written as:
+\begin{equation}
+ 0 = \cos\Bigr(\lambda\cdot k\cdot2\pi +\frac{\pi}{2}\Bigr)
+\end{equation}
+\newpage
+And we can reestate the definition and say that $\lambda k \in \mathbb{W}$. We can express our $k$ as $a/b$, and we get three possible outcomes:
+\begin{itemize}
+ \item $a \in 2\mathbb{N}$ and $b \in \mathbb{Z}\setminus2\mathbb{N}$
+ \item $a \in \mathbb{Z} \setminus2\mathbb{N}$ and $b \in 2\mathbb{N}$
+ \item $a \in\mathbb{Z}\setminus2\mathbb{N}$ and $b \in \mathbb{Z}\setminus2\mathbb{N}$
+\end{itemize}
+In the first case we know that $a \in 2\mathbb{N}$, so we can write it as $2\cdot a'$. And because of this we can write down the expression as:
+\begin{equation}
+ 0 = \cos\Bigr(\lambda\frac{2\cdot a'}{b} \cdot 2\pi + \frac{\pi}{2}\Bigr)
+\end{equation}
+As we assume $\frac{a}{b}$ is in its lowest terms, so we need that $\frac{\lambda a}{b} \in \mathbb{W}$. The easiest way to make this is to multiply by the denominator, so if $\lambda = b$:
+\begin{equation}
+ 0 = \cos\Bigr(2\cdot a'\cdot2\pi + \frac{\pi}{2}\Bigr) = \cos\Bigr(\frac{\pi}{2}\Bigr)
+\end{equation}
+In the second case we know that $b \in 2\mathbb{N}$, so we can write it as $2\cdot b'$. Because of this the expression can be written as:
+\begin{equation}
+ 0 = \cos\Bigr(\lambda\frac{a}{2\cdot b'}\cdot{2\pi}+\frac{\pi}{2}\Bigr)
+\end{equation}
+But as we need it to bean integer we have to multiply by $b$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
