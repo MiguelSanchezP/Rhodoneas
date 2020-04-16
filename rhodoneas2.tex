@@ -1,0 +1,44 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{breqn}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{spalign}
+
+\author{Miguel Sánchez}
+\title{Angle to close a rhodonea curve}
+\date{\today}
+
+\begin{document}
+\maketitle
+\noindent
+ We can define the rhodonea in polar coordinates as:
+ \begin{equation}
+  r(\theta) = \cos(k\theta)
+ \end{equation}
+ If we make it on cartesian coordinates we can define it as following:
+ \begin{equation}
+  x = \cos(k\theta)\cos(\theta)
+ \end{equation}
+ \begin{equation}
+  y = \cos(k\theta)\sin(\theta)
+ \end{equation}
+ If we want the rhodonea to be closed we would need to have the last point in the exact same position of the first, so we can establish that:
+\[
+  \spalignsys{
+    cos (k\theta)cos(\theta) = 1 ;
+    cos (k\theta)sin(\theta) = 0 ;
+  }
+\]
+Before solving the system we're going to identify the four different cases we can encounter:
+\begin{itemize}
+ \item $k = a$ where $a\in2\mathbb{W}$
+ \item $k = a$ where $a\in\mathbb{W}\setminus2\mathbb{W}$
+ \item $k = \frac{a}{b}$ where $a \in2\mathbb{W}, b \in\mathbb{W}\setminus2\mathbb{W}$
+ \item $k = \frac{a}{b}$ where $a\in\mathbb{W}\setminus2\mathbb{W}, b\in2\mathbb{W}$
+\end{itemize}
+\newpage
+\noindent
+\textbf{FIRST CASE:}
+
+\end{document}
