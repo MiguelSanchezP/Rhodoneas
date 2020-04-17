@@ -12,33 +12,78 @@
 \begin{document}
 \maketitle
 \noindent
- We can define the rhodonea in polar coordinates as:
+To define a rhodonea the most straightforward way is through polar coordinates, where the following equation defines it:
  \begin{equation}
   r(\theta) = \cos(k\theta)
  \end{equation}
- If we make it on cartesian coordinates we can define it as following:
+ Note that k is the value that changes the flower, and through our plotting it would be considered constant, as the working with polar coordinates could turn out a little complex, a cartesian approach is considered, and the rhodonea can be reestated as the curve whose coordinates are defined by the following equations:
  \begin{equation}
   x = \cos(k\theta)\cos(\theta)
  \end{equation}
  \begin{equation}
   y = \cos(k\theta)\sin(\theta)
  \end{equation}
- If we want the rhodonea to be closed we would need to have the last point in the exact same position of the first, so we can establish that:
+ In order to get the rhodonea closed it is necessary to find the points in the same exact position as the initial conditions, and as it can be easily calculated the starting point will always be $(1,0)$, thus:
 \[
   \spalignsys{
     cos (k\theta)cos(\theta) = 1 ;
     cos (k\theta)sin(\theta) = 0 ;
   }
 \]
-Before solving the system we're going to identify the four different cases we can encounter:
+We've considered that the best way to handle this problem might be by working on the different cases we may encounter, in our case, having the fractions in its lowest terms, we can identify 4 cases, which are listed below:
 \begin{itemize}
  \item $k = a$ where $a\in2\mathbb{W}$
  \item $k = a$ where $a\in\mathbb{W}\setminus2\mathbb{W}$
  \item $k = \frac{a}{b}$ where $a \in2\mathbb{W}, b \in\mathbb{W}\setminus2\mathbb{W}$
  \item $k = \frac{a}{b}$ where $a\in\mathbb{W}\setminus2\mathbb{W}, b\in2\mathbb{W}$
 \end{itemize}
-\newpage
-\noindent
-\textbf{FIRST CASE:}
-
+\begin{section}{First Case}
+In this first case we are working on the situation where $k = a$ and $a \in 2\mathbb{W}$. So $k$ can be rewritten as $2^{n}k'$, being $k' = \frac{k}{2^{n}}$ for $n\ge1$. Please note that $k'\in\mathbb{W}\setminus2\mathbb{W}$. Making use of all these considerations the x-equation could be displayed as:
+\begin{equation}
+ \cos(2^{n}k'\theta)\cos(\theta) = 1
+\end{equation}
+As it can be observed we would require of an angle of 0 to satisfy this expression, but as the 0 is the one giving the initial conditions, the following one should be taken. This following value is $2\pi$, which can be proven through:
+\begin{equation*}
+ \cos(2^nk'\theta) = \cos(2^n k' 2\pi) = \cos(2^{n+1}k\pi) = 1
+\end{equation*}
+And :
+\begin{equation*}
+ \cos(\theta) = \cos(2\pi) = 1
+\end{equation*}
+And hence:
+\begin{equation*}
+ 1\cdot1 = 1
+\end{equation*}
+Having this simple proof we can now claim that this expression is going to be certain every $2\pi$ (considering the starting angle on 0). The following step to take is to find which the very first value that satisfies the y-equation, it can be seen that the second part would be cancelled by computing $2\pi$:
+\begin{equation}
+ \cos(2^{n}k'\theta)\sin(\theta) = \cos(2^{n}k'2\pi)\sin(2\pi) = \cos(2^{n+1}k'\pi)sin(2\pi) = 0
+\end{equation}
+So it has been determined that for completely closing the rhodonea a rotation of a minimum of $2\pi$ radians has to be applied when $k \in 2\mathbb{W}$.
+\end{section}
+\begin{section}{Second Case}
+The second case that's been considered is where $k \in \mathbb{W}\setminus2\mathbb{W}$. As k is odd further simplification can be applied without fully knowing the exact value of k. Taking all this into account the x-equation of the rhodonea could be written as:
+\begin{equation}
+ \cos(k\theta)\cos(\theta) = 0
+\end{equation}
+It may seem obvious that making a rotation of $2\pi$ would of course satisfy the equation such as in the previous section, but there's a possibility within this angle, and it is to appy a rotation of $\pi$, and this can be shown as:
+\begin{equation*}
+ \cos(k\theta) = \cos(k\pi) = -1
+\end{equation*}
+And:
+\begin{equation*}
+ \cos(\theta) = \cos(\pi) = -1
+\end{equation*}
+And hence:
+\begin{equation*}
+ (-1) \cdot (-1) = 1
+\end{equation*}
+Through this two simple equations it has been proved that when k is odd, the rhodonea's x-coordinate has a value of 1 every $\pi$ rotation. In order to establish this rotation as the minimum angle needed to close the rhodonea it is necessary that it satisfies the y-equation as well: 
+\begin{equation}
+  \cos(k\theta)\sin(\theta) = \cos(k\pi)\sin(\pi) = (-1)\cdot 0 = 0
+\end{equation}
+As it has been successfully computed for both equations, it can now be claimed that a minimum rotation of $\pi$ radians is necessary to close a rhodonea whenever $k \in \mathbb{W}\setminus 2 \mathbb{W}$
+\end{section}
+\begin{section}{Third Case}
+Third section
+\end{section}
 \end{document}
