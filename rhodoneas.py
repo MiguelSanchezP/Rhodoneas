@@ -1,51 +1,64 @@
+#import multiple libraries
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import animation
 import time
 
-iterations=1000
-fps = 100
-final = False
-fig = plt.figure()
-ax = plt.axes(xlim=(-1,1), ylim=(-1,1))
-rose, = ax.plot([],[],'r')
-coeffs = input("Posa un numero (si és fracció, l'irreduible): ")
-num = int(coeffs.split("/")[0])
-if len(coeffs)>1:
-	den = int(coeffs.split("/")[1])
+#CONSTANTS
+#---------
+iterations=1000 #quantity of "parts" that the flower is going to be divided by (the larger it becomes, the smoother it looks, the more time it takes)
+fps = 100 #frames per second on the animation
+make_animated = True #animation boolean
+sleep_seconds = 10 #time the flower pauses after being plotted
+color = 'red' #specify the color of the rose
+
+#CODE
+#----
+first = True #boolean to check when to pause
+fig = plt.figure() #initialize the figure
+ax = plt.axes(xlim=(-1,1), ylim=(-1,1)) #set limits of the axes
+rose, = ax.plot([],[],color) #initialize the rose, variable
+user_input = input("Type in a number (in case of a fraction in its lowest terms [a/b]): ") #ask for k
+coeffs = user_input.split("/") #split the user input by the fraction slash
+num = int(coeffs[0]) #assign numerator value
+if len(coeffs)>1: #check for a denominator
+	den = int(coeffs[1]) #assign denominator value
 else:
-	den = 1
-k = num/den
-num_imparell = False
-den_imparell = False
-if num%2 != 0:
-	num_imparell = True
-elif den%2 != 0:
-	den_imparell = True
+	den = 1 #if there's no denominator give a value of 1
+k=num/den #assign the value to k
+num_odd = False
+den_odd = False
+if num%2 != 0: #check if the numerator is odd
+	num_odd = True #assign value True to boolean checking if the numerator is odd
+if den%2 != 0: #check if the denominator is odd
+	den_odd = True #assign value True to boolean checking if the denominator is odd
 
-if num_imparell and den_imparell:
-	rounds = den/2
+if num_odd and den_odd: #check if both numerator and denominator are odd
+	angle = np.pi*den #assign the value of the angle to close
 else:
-	rounds = den
-thetas = np.linspace(0, (2*np.pi)*rounds, iterations)
-x = np.cos(k*thetas)*np.cos(thetas+np.pi/2)
-y = np.cos(k*thetas)*np.sin(thetas+np.pi/2)
+	angle = 2*np.pi*den #assign the value of the angle to close
+thetas = np.linspace(0, angle, iterations) #creation of all the values that are going to be computed
+x = np.cos(k*thetas)*np.cos(thetas) #multiply by the cosinus to get all x coordinates
+y = np.cos(k*thetas)*np.sin(thetas) #multiply by the sinus to get all y coordinates
 
 
-def init():
-	rose.set_data([],[])
+def initialize(): #definition of initialize
+	rose.set_data([],[]) #establish the array on the rose variable
 	return rose,
 
 
-def animate(i):
-	global final
-	rose.set_data(x[0:i], y[0:i])
-	if i == 0 and final:
-		time.sleep(10)
-	elif i == 0 and not final:
-		final = True
+def animate(i): #definition for the animation
+	global first #modification of global variable final
+	rose.set_data(x[0:i], y[0:i]) #add one more value of x and y to the rose array
+	if i == 0 and not first: #check if the flower has been completed and it's not the first plotting
+		time.sleep(sleep_seconds) #sleep for the specified time
+	if first: #check if it is the very start of the plotting
+		first=False; #know it's not the first time
 	return rose,
 
 
-animation.FuncAnimation(fig, animate, init_func=init, frames=iterations, interval=1000/fps, blit=True)
-plt.show()
+if make_animated: #if animated
+	animation.FuncAnimation(fig, animate, init_func=initialize, frames=iterations, interval=1000/fps, blit=True) #call the animation with all functions and user specifications
+else:
+	plt.plot(x,y, color) #plot the flower directly
+plt.show() #show plots
