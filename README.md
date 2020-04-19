@@ -11,4 +11,4 @@ python3 rhodoneas.py
 ```
 
 ### DEPENDENCIES
-This imports ```matplotlib```, ```time``` and ```numpy```. Normally this files are installed in the system if one is a developer of python.
+This file makes use of imports ```matplotlib```, ```time``` and ```numpy```. Normally this files are installed in the system if one is a developer of python.
