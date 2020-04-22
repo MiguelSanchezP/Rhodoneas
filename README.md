@@ -9,11 +9,11 @@ wget https://github.com/MiguelSanchezP/Rhodoneas/archive/master.zip
 ```
 * Just for the python file:
 ```shell
-wget https://github.com/MiguelSanchezP/Rhodoneas/blob/master/rhodoneas.py
+wget https://raw.githubusercontent.com/MiguelSanchezP/Rhodoneas/master/rhodoneas.py
 ```
 * Just for the proof:
 ```shell
-wget https://github.com/MiguelSanchezP/Rhodoneas/blob/master/Angle%20to%20close%20a%20rhodonea%20curve.pdf
+wget https://raw.githubusercontent.com/MiguelSanchezP/Rhodoneas/master/Angle%20to%20close%20a%20rhodonea%20curve.pdf
 ```
 
 ### INSTALLATION
