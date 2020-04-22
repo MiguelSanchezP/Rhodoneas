@@ -20,9 +20,9 @@ ax = plt.axes(xlim=(-1,1), ylim=(-1,1)) #set limits of the axes
 rose, = ax.plot([],[],color) #initialize the rose, variable
 user_input = input("Type in a number (in case of a fraction in its lowest terms [a/b]): ") #ask for k
 coeffs = user_input.split("/") #split the user input by the fraction slash
-num = int(coeffs[0]) #assign numerator value
+num = float(coeffs[0]) #assign numerator value
 if len(coeffs)>1: #check for a denominator
-	den = int(coeffs[1]) #assign denominator value
+	den = float(coeffs[1]) #assign denominator value
 else:
 	den = 1 #if there's no denominator give a value of 1
 k=num/den #assign the value to k
